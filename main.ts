@@ -14,6 +14,29 @@ basic.forever(function () {
     basic.pause(200)
 })
 basic.forever(function () {
+    analogValue = 0
+    for (let index = 0; index <= 9; index++) {
+        analogValue += pins.analogReadPin(AnalogPin.P0)
+    }
+    analogValue = analogValue / 10
+    soilMoisture = Math.round(pins.map(
+    analogValue,
+    0,
+    1023,
+    100,
+    0
+    ))
+})
+basic.forever(function () {
+    if (soilMoisture > setSoilMoisture) {
+        l9110.pauseMotor(l9110.Motor.MotorA)
+        l9110.pauseMotor(l9110.Motor.MotorB)
+    } else {
+        l9110.controlMotor(l9110.Motor.MotorA, l9110.Rotate.Forward, 100)
+        l9110.controlMotor(l9110.Motor.MotorB, l9110.Rotate.Forward, 100)
+    }
+})
+basic.forever(function () {
     if (input.buttonIsPressed(Button.A)) {
         setSoilMoisture += -1
         if (setSoilMoisture < 100) {
@@ -46,27 +69,4 @@ basic.forever(function () {
         EEPROM.writew(0, setSoilMoisture)
         music.play(music.tonePlayable(880, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
     }
-})
-basic.forever(function () {
-    if (soilMoisture > setSoilMoisture) {
-        l9110.pauseMotor(l9110.Motor.MotorA)
-        l9110.pauseMotor(l9110.Motor.MotorB)
-    } else {
-        l9110.controlMotor(l9110.Motor.MotorA, l9110.Rotate.Forward, 100)
-        l9110.controlMotor(l9110.Motor.MotorB, l9110.Rotate.Forward, 100)
-    }
-})
-basic.forever(function () {
-    analogValue = 0
-    for (let index = 0; index <= 9; index++) {
-        analogValue += pins.analogReadPin(AnalogPin.P0)
-    }
-    analogValue = analogValue / 10
-    soilMoisture = Math.round(pins.map(
-    analogValue,
-    0,
-    1023,
-    100,
-    0
-    ))
 })
