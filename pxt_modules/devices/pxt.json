@@ -1,0 +1,22 @@
+{
+    "name": "devices",
+    "description": "BETA -  Camera, remote control and other Bluetooth services. App required.",
+    "dependencies": {
+        "core": "*",
+        "bluetooth": "*"
+    },
+    "files": [
+        "README.md",
+        "enums.d.ts",
+        "shims.d.ts",
+        "devices.cpp",
+        "devices.ts"
+    ],
+    "public": true,
+    "targetVersions": {
+        "target": "7.0.13",
+        "pxt": "10.0.23"
+    },
+    "icon": "./static/packages/devices/icon.png",
+    "hidden": true
+}
