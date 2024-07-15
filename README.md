@@ -24,4 +24,4 @@ To edit this repository in MakeCode.
 <script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
 
 ## Connection Diagram
-![Diagram-Soil Moisture Control Pump.png](https://github.com/STEMax-Tech/soil-moisture-sensing-system/blob/master/Hardware-Soil%20Moisture%20Control%20Pump.drawio.svg)
+<img src="./Hardware-Soil Moisture Control Pump.drawio.svg">
