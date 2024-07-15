@@ -1,4 +1,3 @@
-<img src="https://stemax.edu.vn/wp-content/uploads/2023/05/Logo-STEMax-ngang.png" width="15%"/>
 > Open this page at [https://stemax-tech.github.io/soil-moisture-sensing-system/](https://stemax-tech.github.io/soil-moisture-sensing-system/)
 
 ## Use as Extension
