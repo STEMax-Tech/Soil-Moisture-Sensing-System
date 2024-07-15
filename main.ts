@@ -22,8 +22,11 @@ basic.forever(function () {
     lcd.displayText("Set Moisture:" + setSoilMoisture + "    ", 1, 2)
     if (soilMoisture > setSoilMoisture) {
         lcd.displayText(" ", 16, 1)
+        basic.showIcon(IconNames.Happy)
     } else {
         lcd.displayText(lcd.displaySymbol(lcd.Symbols.sym10), 16, 1)
+        basic.showIcon(IconNames.Sad)
+        music.play(music.tonePlayable(880, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
     }
     basic.pause(200)
 })
