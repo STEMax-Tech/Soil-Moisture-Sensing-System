@@ -26,11 +26,16 @@ basic.forever(function () {
     } else {
         lcd.displayText(lcd.displaySymbol(lcd.Symbols.sym10), 16, 1)
         basic.showIcon(IconNames.Sad)
-        music.play(music.tonePlayable(880, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
     }
     basic.pause(200)
 })
 basic.forever(function () {
+    if (input.buttonIsPressed(Button.AB)) {
+        while (input.buttonIsPressed(Button.AB)) {
+            basic.showIcon(IconNames.Yes)
+        }
+        EEPROM.writew(0, setSoilMoisture)
+    }
     if (input.buttonIsPressed(Button.A)) {
         setSoilMoisture += -1
         if (setSoilMoisture < 0) {
@@ -55,13 +60,6 @@ basic.forever(function () {
             . . # . .
             . . . . .
             `)
-    }
-    if (input.logoIsPressed()) {
-        while (input.logoIsPressed()) {
-            basic.showIcon(IconNames.Yes)
-        }
-        EEPROM.writew(0, setSoilMoisture)
-        music.play(music.tonePlayable(880, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
     }
 })
 basic.forever(function () {
